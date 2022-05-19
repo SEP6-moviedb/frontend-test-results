@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">51.42% </span>
+                <span class="strong">56.25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>18/35</span>
+                <span class='fraction'>18/32</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.12% </span>
+                <span class="strong">58.62% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>17/32</span>
+                <span class='fraction'>17/29</span>
             </div>
         
             
@@ -144,8 +144,7 @@
 <a name='L79'></a><a href='#L79'>79</a>
 <a name='L80'></a><a href='#L80'>80</a>
 <a name='L81'></a><a href='#L81'>81</a>
-<a name='L82'></a><a href='#L82'>82</a>
-<a name='L83'></a><a href='#L83'>83</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L82'></a><a href='#L82'>82</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -162,7 +161,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -205,22 +203,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -242,7 +240,6 @@ export class ApiHttpService {
   constructor(private http: HttpClient) { }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  rateMovie(</span>rating: any) {
-<span class="cstat-no" title="statement not covered" >    console.log(rating)</span>
     let apiUrl = <span class="cstat-no" title="statement not covered" >baseUrl + `userratings?movieid=${rating.movieId}&amp;rating=${rating.rating}&amp;userid=${rating.userId}`;</span>
 <span class="cstat-no" title="statement not covered" >    this.http.post(apiUrl, "").subscribe(<span class="fstat-no" title="function not covered" >res </span>=&gt; <span class="cstat-no" title="statement not covered" >res)</span>;</span>
   }
@@ -287,22 +284,22 @@ export class ApiHttpService {
   }
 &nbsp;
   getActorStatistics(): Observable&lt;StatisticsByActor[]&gt; {
-    //let apiUrl = `${baseUrl}/actorstatistics`;
-    let apiUrl = "https://localhost:7183/" + `actorstatistics`;
+    let apiUrl = `${baseUrl}/actorstatistics`;
+    //let apiUrl = "https://localhost:7183/" + `actorstatistics`;
     let obs = this.http.get&lt;StatisticsByActor[]&gt;(apiUrl);
     obs.subscribe(<span class="fstat-no" title="function not covered" >res </span>=&gt; {
-<span class="cstat-no" title="statement not covered" >      console.log(res);</span>
+      //console.log(res);
 <span class="cstat-no" title="statement not covered" >      return res</span>
     });
     return obs;
   }
 &nbsp;
   getMovieStatistics(): Observable&lt;StatisticsByMovie[]&gt; {
-    //let apiUrl = `${baseUrl}/moviestatistics`;
-    let apiUrl = "https://localhost:7183/" + `moviestatistics`;
+    let apiUrl = `${baseUrl}/moviestatistics`;
+    //let apiUrl = "https://localhost:7183/" + `moviestatistics`;
     let obs = this.http.get&lt;StatisticsByMovie[]&gt;(apiUrl);
     obs.subscribe(<span class="fstat-no" title="function not covered" >res </span>=&gt; {
-<span class="cstat-no" title="statement not covered" >      console.log(res);</span>
+      //console.log(res);
 <span class="cstat-no" title="statement not covered" >      return res</span>
     });
     return obs;
@@ -316,7 +313,7 @@ export class ApiHttpService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu May 19 2022 09:22:13 GMT+0000 (Coordinated Universal Time)
+                at Thu May 19 2022 09:47:23 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
