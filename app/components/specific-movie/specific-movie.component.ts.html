@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">55.26% </span>
+                <span class="strong">53.48% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>21/38</span>
+                <span class='fraction'>23/43</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>7/14</span>
+                <span class='fraction'>8/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">54.05% </span>
+                <span class="strong">52.38% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>20/37</span>
+                <span class='fraction'>22/42</span>
             </div>
         
             
@@ -151,7 +151,16 @@
 <a name='L86'></a><a href='#L86'>86</a>
 <a name='L87'></a><a href='#L87'>87</a>
 <a name='L88'></a><a href='#L88'>88</a>
-<a name='L89'></a><a href='#L89'>89</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -185,6 +194,7 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -220,6 +230,14 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -242,7 +260,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {Component, OnDestroy, OnInit} from '@angular/core';
 import { TmdbService } from 'src/app/services/tmdb.service'
 import { ApiHttpService } from 'src/app/services/api-http.service'
-import {comment, tmdbMovie} from '../../models/movie-star.model';
+import {comment, Credits, tmdbMovie} from '../../models/movie-star.model';
 import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import {Subscription} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
@@ -255,7 +273,7 @@ import {MovieUtilService} from "../../services/movie-util-service.service";
   styleUrls: ['./specific-movie.component.css']
 })
 export class SpecificMovieComponent implements OnInit, OnDestroy {
-&nbsp;
+  credits!: Credits;
   movie: tmdbMovie = new tmdbMovie();
   comments: comment[] = [];
   ratingCtrl = new FormControl(null, Validators.required);
@@ -277,6 +295,7 @@ export class SpecificMovieComponent implements OnInit, OnDestroy {
       this.getMovieById(params['tmdbId']);
       this.setAverageRating(params['tmdbId']);
       this.getComments(params['tmdbId']);
+      this.getCredits(params['tmdbId']);
     });
   }
 <span class="fstat-no" title="function not covered" >  rateChanged(</span>event: number){
@@ -311,6 +330,14 @@ export class SpecificMovieComponent implements OnInit, OnDestroy {
     })
   }
 &nbsp;
+  getCredits(id: string){
+    this.tmdbService.getMovieCredits(id).subscribe(<span class="fstat-no" title="function not covered" >credits </span>=&gt; {
+<span class="cstat-no" title="statement not covered" >      this.util.sanitizeCredits(credits as Credits);</span>
+<span class="cstat-no" title="statement not covered" >      this.credits = credits;</span>
+<span class="cstat-no" title="statement not covered" >      console.log(this.credits)</span>
+    })
+  }
+&nbsp;
 <span class="fstat-no" title="function not covered" >  comment(</span>){
 <span class="cstat-no" title="statement not covered" >    this.apiHttpService.postComment(this.movie.id, this.authService.getCurrentUser(), this.commentForm.value.comment)</span>
   }
@@ -334,7 +361,7 @@ export class SpecificMovieComponent implements OnInit, OnDestroy {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu May 19 2022 10:19:22 GMT+0000 (Coordinated Universal Time)
+                at Thu May 19 2022 10:36:19 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>
