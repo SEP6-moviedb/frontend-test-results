@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">54.54% </span>
+                <span class="strong">55.55% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/22</span>
+                <span class='fraction'>10/18</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">44.44% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/9</span>
+                <span class='fraction'>4/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">52.38% </span>
+                <span class="strong">56.25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/21</span>
+                <span class='fraction'>9/16</span>
             </div>
         
             
@@ -128,7 +128,10 @@
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -161,11 +164,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -190,7 +194,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Component, OnInit } from '@angular/core';
@@ -210,7 +216,7 @@ import {
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  socialUser!: SocialUser;
+  //socialUser!: SocialUser;
   private emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 &nbsp;
   loginForm = new FormGroup({
@@ -226,11 +232,12 @@ export class LoginComponent implements OnInit {
   ) { }
 &nbsp;
   ngOnInit(): void {
-    this.socialAuthService.authState.subscribe(<span class="fstat-no" title="function not covered" >user </span>=&gt; {
-<span class="cstat-no" title="statement not covered" >      this.socialUser = user;</span>
-<span class="cstat-no" title="statement not covered" >      console.log(this.socialUser);</span>
+    /*
+    this.socialAuthService.authState.subscribe(user =&gt; {
+      this.socialUser = user;
+      console.log(this.socialUser);
     });
-    console.log(this.socialAuthService)
+    console.log(this.socialAuthService)*/
   }
 &nbsp;
   get usernameControl(): FormControl {
@@ -247,16 +254,18 @@ export class LoginComponent implements OnInit {
     let username = <span class="cstat-no" title="statement not covered" >this.f['username'].value</span>
     let password = <span class="cstat-no" title="statement not covered" >this.f['password'].value</span>
 <span class="cstat-no" title="statement not covered" >    this.authenticationService.login(username, password).subscribe(<span class="fstat-no" title="function not covered" >r </span>=&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (r === 200)</span>
-<span class="cstat-no" title="statement not covered" >        this.router.navigateByUrl("/");</span>
+<span class="cstat-no" title="statement not covered" >      if (r.status === 200)</span>
+<span class="cstat-no" title="statement not covered" >        this.router.navigateByUrl("/").then(<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >window.location.reload())</span>;</span>
       else
 <span class="cstat-no" title="statement not covered" >        this.router.navigateByUrl("/login")</span>
     });
   }
 &nbsp;
-<span class="fstat-no" title="function not covered" >  loginWithGoogle(</span>): void {
-<span class="cstat-no" title="statement not covered" >    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);</span>
+  /*
+  loginWithGoogle(): void {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
   }
+  */
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -265,7 +274,7 @@ export class LoginComponent implements OnInit {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu May 19 2022 10:39:16 GMT+0000 (Coordinated Universal Time)
+                at Thu May 19 2022 13:13:50 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>

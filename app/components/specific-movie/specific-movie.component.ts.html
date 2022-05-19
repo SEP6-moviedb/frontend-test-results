@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.48% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>23/43</span>
+                <span class='fraction'>23/46</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">44.44% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>8/16</span>
+                <span class='fraction'>8/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">52.38% </span>
+                <span class="strong">48.88% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>22/42</span>
+                <span class='fraction'>22/45</span>
             </div>
         
             
@@ -160,7 +160,13 @@
 <a name='L95'></a><a href='#L95'>95</a>
 <a name='L96'></a><a href='#L96'>96</a>
 <a name='L97'></a><a href='#L97'>97</a>
-<a name='L98'></a><a href='#L98'>98</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -206,19 +212,12 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -229,7 +228,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -242,7 +241,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -302,7 +314,9 @@ export class SpecificMovieComponent implements OnInit, OnDestroy {
 <span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (event === 0)</span>
 <span class="cstat-no" title="statement not covered" >      return;</span>
     let rate = <span class="cstat-no" title="statement not covered" >{movieId: this.movie.id, rating: event, userId: this.authService.getCurrentUser()}</span>
-<span class="cstat-no" title="statement not covered" >    this.apiHttpService.rateMovie(rate);</span>
+<span class="cstat-no" title="statement not covered" >    this.apiHttpService.rateMovie(rate).subscribe(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
+<span class="cstat-no" title="statement not covered" >      window.location.reload();</span>
+    });
   }
 &nbsp;
   setAverageRating(id: string){
@@ -332,14 +346,18 @@ export class SpecificMovieComponent implements OnInit, OnDestroy {
 &nbsp;
   getCredits(id: string){
     this.tmdbService.getMovieCredits(id).subscribe(<span class="fstat-no" title="function not covered" >credits </span>=&gt; {
+<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (credits === undefined)</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
 <span class="cstat-no" title="statement not covered" >      this.util.sanitizeCredits(credits as Credits);</span>
 <span class="cstat-no" title="statement not covered" >      this.credits = credits;</span>
-<span class="cstat-no" title="statement not covered" >      console.log(this.credits)</span>
     })
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  comment(</span>){
 <span class="cstat-no" title="statement not covered" >    this.apiHttpService.postComment(this.movie.id, this.authService.getCurrentUser(), this.commentForm.value.comment)</span>
+      .subscribe(<span class="fstat-no" title="function not covered" >() =</span>&gt; {
+<span class="cstat-no" title="statement not covered" >        window.location.reload();</span>
+    })
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  toggle(</span>) {
@@ -361,7 +379,7 @@ export class SpecificMovieComponent implements OnInit, OnDestroy {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu May 19 2022 10:39:16 GMT+0000 (Coordinated Universal Time)
+                at Thu May 19 2022 13:13:50 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>
