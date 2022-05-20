@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.88% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>16/18</span>
+                <span class='fraction'>8/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">85.71% </span>
+                <span class="strong">44.44% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>6/7</span>
+                <span class='fraction'>4/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.23% </span>
+                <span class="strong">36.84% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>15/17</span>
+                <span class='fraction'>7/19</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -106,7 +106,19 @@
 <a name='L41'></a><a href='#L41'>41</a>
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -119,21 +131,33 @@
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -150,8 +174,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import { catchError, Observable, NEVER, throwError, map } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 &nbsp;
 const baseUrl = 'https://moviestarapi20220420144830.azurewebsites.net/';
 @Injectable({
@@ -161,22 +185,34 @@ export class AuthenticationService {
 &nbsp;
   constructor(private http: HttpClient) { }
 &nbsp;
-  login(username: string, password: string): Observable&lt;any&gt; {
-    let apiUrl = baseUrl + `users?username=${username}&amp;password=${password}`;
-    let obs = this.http.get&lt;any&gt;(apiUrl, {observe: "response"});
-    obs.subscribe(res =&gt; {
-      if (res.status === 200) {
-        localStorage.setItem("token", "my-super-secret-token-from-server");
-        localStorage.setItem("username", res.body.toString());
-      }
-      return res;
-    });
-    return obs;
+<span class="fstat-no" title="function not covered" >  handleLoginRequestErrors(</span>obs: Observable&lt;any&gt;): Observable&lt;any&gt;{
+<span class="cstat-no" title="statement not covered" >    return obs.pipe(catchError(<span class="fstat-no" title="function not covered" >err </span>=&gt; {</span>
+<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (!!err.status &amp;&amp; err.status === 401){</span>
+<span class="cstat-no" title="statement not covered" >          return NEVER;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return throwError(err);</span>
+      }),
+      map(<span class="fstat-no" title="function not covered" >res </span>=&gt; {
+<span class="cstat-no" title="statement not covered" >        <span class="missing-if-branch" title="if path not taken" >I</span>if (res.status === 200) {</span>
+<span class="cstat-no" title="statement not covered" >          localStorage.setItem("token", "my-super-secret-token-from-server");</span>
+<span class="cstat-no" title="statement not covered" >          localStorage.setItem("username", res.body.toString());</span>
+        }
+<span class="cstat-no" title="statement not covered" >        return res;</span>
+      }));
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  login(</span>username: string, password: string): Observable&lt;any&gt; {
+    let apiUrl = <span class="cstat-no" title="statement not covered" >baseUrl + `users?action=signin`;</span>
+<span class="cstat-no" title="statement not covered" >    return this.handleLoginRequestErrors(this.http.post&lt;any&gt;(apiUrl,</span>
+      {username: username, password: password},
+      {observe: "response"}));
   }
 &nbsp;
 <span class="fstat-no" title="function not covered" >  signup(</span>displayname: string, username: string, password: string): Observable&lt;any&gt; {
-    let apiUrl = <span class="cstat-no" title="statement not covered" >baseUrl + `users?username=${username}&amp;password=${password}&amp;displayname=${displayname}`;</span>
-<span class="cstat-no" title="statement not covered" >    return this.http.post&lt;any&gt;(apiUrl, {observe: "response"});</span>
+    let apiUrl = <span class="cstat-no" title="statement not covered" >baseUrl + `users`;</span>
+<span class="cstat-no" title="statement not covered" >    return this.http.post&lt;any&gt;(apiUrl,</span>
+      {displayname: displayname, username: username, password: password},
+      {observe: "response"});
   }
 &nbsp;
   logout(): void {
@@ -199,7 +235,7 @@ export class AuthenticationService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Thu May 19 2022 13:13:50 GMT+0000 (Coordinated Universal Time)
+                at Fri May 20 2022 09:40:31 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
