@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">58.82% </span>
+                <span class="strong">62.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/34</span>
+                <span class='fraction'>20/32</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">38.88% </span>
+                <span class="strong">43.75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>7/18</span>
+                <span class='fraction'>7/16</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.57% </span>
+                <span class="strong">61.29% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>19/33</span>
+                <span class='fraction'>19/31</span>
             </div>
         
             
@@ -145,16 +145,8 @@
 <a name='L80'></a><a href='#L80'>80</a>
 <a name='L81'></a><a href='#L81'>81</a>
 <a name='L82'></a><a href='#L82'>82</a>
-<a name='L83'></a><a href='#L83'>83</a>
-<a name='L84'></a><a href='#L84'>84</a>
-<a name='L85'></a><a href='#L85'>85</a>
-<a name='L86'></a><a href='#L86'>86</a>
-<a name='L87'></a><a href='#L87'>87</a>
-<a name='L88'></a><a href='#L88'>88</a>
-<a name='L89'></a><a href='#L89'>89</a>
-<a name='L90'></a><a href='#L90'>90</a>
-<a name='L91'></a><a href='#L91'>91</a>
-<a name='L92'></a><a href='#L92'>92</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L83'></a><a href='#L83'>83</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -216,18 +208,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -235,10 +219,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -250,8 +232,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {comment, Movie} from '../models/movie-star.model';
 import { StatisticsByActor, StatisticsByMovie } from '../models/statistics.model';
+import { environment } from "../../environments/environment.prod";
 &nbsp;
-const baseUrl = 'https://moviestarapi.azurewebsites.net/';
+const baseUrl = environment.movieStarApiUrl;
 @Injectable({
   providedIn: 'root'
 })
@@ -306,19 +289,11 @@ export class ApiHttpService {
 <span class="fstat-no" title="function not covered" >  delete(</span>id: any): Observable&lt;any&gt; {
 <span class="cstat-no" title="statement not covered" >    return this.http.delete(`${baseUrl}/${id}`);</span>
   }
-<span class="fstat-no" title="function not covered" >  deleteAll(</span>): Observable&lt;any&gt; {
-<span class="cstat-no" title="statement not covered" >    return this.http.delete(baseUrl);</span>
-  }
-<span class="fstat-no" title="function not covered" >  findByTitle(</span>title: any): Observable&lt;Movie[]&gt; {
-<span class="cstat-no" title="statement not covered" >    return this.http.get&lt;Movie[]&gt;(`${baseUrl}?title=${title}`);</span>
-  }
 &nbsp;
   getActorStatistics(): Observable&lt;StatisticsByActor[]&gt; {
     let apiUrl = `${baseUrl}/actorstatistics`;
-    //let apiUrl = "https://localhost:7183/" + `actorstatistics`;
     let obs = this.http.get&lt;StatisticsByActor[]&gt;(apiUrl);
     obs.subscribe(<span class="fstat-no" title="function not covered" >res </span>=&gt; {
-      //console.log(res);
 <span class="cstat-no" title="statement not covered" >      return res</span>
     });
     return obs;
@@ -326,10 +301,8 @@ export class ApiHttpService {
 &nbsp;
   getMovieStatistics(): Observable&lt;StatisticsByMovie[]&gt; {
     let apiUrl = `${baseUrl}/moviestatistics`;
-    //let apiUrl = "https://localhost:7183/" + `moviestatistics`;
     let obs = this.http.get&lt;StatisticsByMovie[]&gt;(apiUrl);
     obs.subscribe(<span class="fstat-no" title="function not covered" >res </span>=&gt; {
-      //console.log(res);
 <span class="cstat-no" title="statement not covered" >      return res</span>
     });
     return obs;
@@ -343,7 +316,7 @@ export class ApiHttpService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue May 24 2022 08:53:49 GMT+0000 (Coordinated Universal Time)
+                at Tue May 24 2022 08:56:15 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
