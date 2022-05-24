@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">57.69% </span>
+                <span class="strong">53.12% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>15/26</span>
+                <span class='fraction'>17/32</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">46.15% </span>
+                <span class="strong">41.17% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>6/13</span>
+                <span class='fraction'>7/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">58.33% </span>
+                <span class="strong">53.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/24</span>
+                <span class='fraction'>16/30</span>
             </div>
         
             
@@ -127,7 +127,23 @@
 <a name='L62'></a><a href='#L62'>62</a>
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
-<a name='L65'></a><a href='#L65'>65</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -141,7 +157,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -151,6 +167,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -181,13 +202,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -195,7 +225,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.prod';
-import {popularActor, tmdbMovie} from '../models/movie-star.model';
+import {actors, searchActor, tmdbMovie} from '../models/movie-star.model';
+&nbsp;
 &nbsp;
 const baseUrl = 'https://api.themoviedb.org/3/';
 const apiKey = environment.tmdbApiKey;
@@ -215,6 +246,11 @@ export class TmdbService {
 <span class="fstat-no" title="function not covered" >  searchPeople(</span>term: string): Observable&lt;any&gt;{
     let searchUrl = <span class="cstat-no" title="statement not covered" >baseUrl + `search/person?api_key=${apiKey}&amp;language=en-US&amp;query=${term}&amp;page=1&amp;include_adult=false`;</span>
 <span class="cstat-no" title="statement not covered" >    return this.http.get&lt;any&gt;(searchUrl);</span>
+  }
+&nbsp;
+  people(name: string): Observable&lt;any&gt;{
+    let searchUrl = baseUrl + `search/person?api_key=${apiKey}&amp;language=en-US&amp;query=${name}&amp;page=1&amp;include_adult=false`;
+    return this.http.get&lt;any&gt;(searchUrl);
   }
 &nbsp;
   getMovieCredits(tmdbId: string): Observable&lt;any&gt;{
@@ -244,16 +280,25 @@ export class TmdbService {
       .then(<span class="fstat-no" title="function not covered" >data </span>=&gt; { <span class="cstat-no" title="statement not covered" >return data; </span>});
   }
 &nbsp;
-  getPopularActors() {
-    let apiUrl = baseUrl + `person/popular?api_key=${apiKey}&amp;language=en-US&amp;page=1`;
-    return this.http.get&lt;any&gt;(apiUrl)
+<span class="fstat-no" title="function not covered" >  getPopularActors(</span>) {
+    let apiUrl = <span class="cstat-no" title="statement not covered" >baseUrl + `person/popular?api_key=${apiKey}&amp;language=en-US&amp;page=2&amp;include_adult=false`;</span>
+<span class="cstat-no" title="statement not covered" >    return this.http.get&lt;any&gt;(apiUrl)</span>
       .toPromise()
-      .then(<span class="fstat-no" title="function not covered" >res </span>=&gt; &lt;popularActor[]&gt;<span class="cstat-no" title="statement not covered" >res.results)</span>
+      .then(<span class="fstat-no" title="function not covered" >res </span>=&gt; &lt;searchActor[]&gt;<span class="cstat-no" title="statement not covered" >res.results)</span>
       .then(<span class="fstat-no" title="function not covered" >data </span>=&gt; {
 <span class="cstat-no" title="statement not covered" >        return data;</span>
       });
   }
 &nbsp;
+  getActorById(personId: number){
+    let apiUrl = baseUrl + `person/${personId}?api_key=${apiKey}&amp;language=en-US&amp;include_adult=false`
+    return this.http.get&lt;any&gt;(apiUrl)
+      .toPromise()
+      .then(<span class="fstat-no" title="function not covered" >res </span>=&gt; &lt;actors&gt;<span class="cstat-no" title="statement not covered" >res)</span>
+      .then(<span class="fstat-no" title="function not covered" >data </span>=&gt; {
+<span class="cstat-no" title="statement not covered" >        return data;</span>
+      });
+  }
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -262,7 +307,7 @@ export class TmdbService {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue May 24 2022 08:19:21 GMT+0000 (Coordinated Universal Time)
+                at Tue May 24 2022 08:53:49 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
