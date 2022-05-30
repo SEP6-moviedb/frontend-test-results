@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.33% </span>
+                <span class="strong">46.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>28/30</span>
+                <span class='fraction'>14/30</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.5% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/8</span>
+                <span class='fraction'>2/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.85% </span>
+                <span class="strong">42.85% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>26/28</span>
+                <span class='fraction'>12/28</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -188,33 +188,33 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -267,10 +267,10 @@ export class SliderComponent implements OnInit {
   }
 &nbsp;
   getTrendingMovies() {
-    this.tmdbService.getTrendingMovies().subscribe(res =&gt; {
-        let movies: tmdbMovie[] = res.results;
-        this.movies = this.util.sanitizeMovies(movies);
-        this.genre = "Trending ⏫"
+    this.tmdbService.getTrendingMovies().subscribe(<span class="fstat-no" title="function not covered" >res </span>=&gt; {
+        let movies: tmdbMovie[] = <span class="cstat-no" title="statement not covered" >res.results;</span>
+<span class="cstat-no" title="statement not covered" >        this.movies = this.util.sanitizeMovies(movies);</span>
+<span class="cstat-no" title="statement not covered" >        this.genre = "Trending ⏫"</span>
       }
     );
   }
@@ -279,23 +279,23 @@ export class SliderComponent implements OnInit {
     this.tmdbService.getRecommendationByGenre(genre).subscribe(res =&gt; {
       let movies: tmdbMovie[] = res.results;
       this.movies = this.util.sanitizeMovies(movies);
-      switch (genre) {
+<span class="cstat-no" title="statement not covered" >      switch (genre) {</span>
         case "28":
-          this.genre = "Action";
-          break;
+<span class="cstat-no" title="statement not covered" >          this.genre = "Action";</span>
+<span class="cstat-no" title="statement not covered" >          break;</span>
         case "12":
-          this.genre = "Adventure"
-          break;
+<span class="cstat-no" title="statement not covered" >          this.genre = "Adventure"</span>
+<span class="cstat-no" title="statement not covered" >          break;</span>
         case "16":
-          this.genre = "Animation"
-          break;
+<span class="cstat-no" title="statement not covered" >          this.genre = "Animation"</span>
+<span class="cstat-no" title="statement not covered" >          break;</span>
         case "35":
-          this.genre = "Comedy"
-          break;
+<span class="cstat-no" title="statement not covered" >          this.genre = "Comedy"</span>
+<span class="cstat-no" title="statement not covered" >          break;</span>
         case "14":
-          this.genre = "Fantasy"
-          break;
-<span class="branch-5 cbranch-no" title="branch not covered" >        default:</span>
+<span class="cstat-no" title="statement not covered" >          this.genre = "Fantasy"</span>
+<span class="cstat-no" title="statement not covered" >          break;</span>
+        default:
 <span class="cstat-no" title="statement not covered" >          this.genre = "Unknown"</span>
 <span class="cstat-no" title="statement not covered" >          break;</span>
       }
@@ -310,7 +310,7 @@ export class SliderComponent implements OnInit {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue May 24 2022 12:41:47 GMT+0000 (Coordinated Universal Time)
+                at Mon May 30 2022 09:03:40 GMT+0000 (Coordinated Universal Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>
